@@ -1,8 +1,10 @@
 import numpy as np
 from scipy.special import factorial
 import matplotlib.pyplot as plt
+from numba import njit
 
 class PhotonGenerator():
+    """Depreciated"""
     def __init__(self, photon_chance, purity, extinction_ratio, qd_lifetime=0.1) -> None:
         self.photon_chance = photon_chance
         self.purity = purity
@@ -96,7 +98,7 @@ class PhotonGenerator():
     
 
 class LightGenerator():
-    def __init__(self, stream_length, pulse_width, period, dark_counts, brightness, extinction_ratio, pulse_shape = "square") -> None:
+    def __init__(self, stream_length, pulse_width, period, brightness, extinction_ratio, dark_counts=0, pulse_shape = "square") -> None:
         """set internal variables and return the generate function
         
         Inputs:
@@ -182,9 +184,6 @@ class LightGenerator():
         detector_click_times = np.sort(detector_click_times)
 
         return detector_click_times
-
-
-from numba import njit
 
 @njit
 def passdot_jit(stream, lifetime, interaction_probability, extinction_probability):
