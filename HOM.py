@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
     # For the g2 measurement: Total integration time, that needs to repeat the lightstream some number of times.
     # You can't pick lg.stream_length too long because the arrays get huge (and the autocorrelation)!
-    int_time = 0.01
+    int_time = 0.1
     runs = int(int_time/(lg.stream_length*1e-9))
 
     for experiment in [hom, delay_hom]:

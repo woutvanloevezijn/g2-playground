@@ -18,6 +18,7 @@ Creates a pulsed stream of light with some photon ratio set by the user, then ca
 Hanbury-Brown-Twiss experiment with pulsed light. A quantum dot can be inserted to change the statistics, extinguishing the peak at $\tau=0.$
 
 ## ` HOM.py`
+This is a work in progress, currently the $\text{g}^2$ of a quantum dot HOM measurement is not accurately repreduced.
 Hong-Ou-Mandel experiment with the pulser. A quantum dot can be inserted to change the statistics. Please not that the beamsplitter is not modeled using a quantum calculation, the semi-classical model assumes that all photons are indistinguishable. Continuous wave light leads to a small dip. However only the temporally nearest photons are bunched by the beamsplitter. Multiple passes do not work, you cannot build a delay loop.
 
 # Tips for use
@@ -27,6 +28,7 @@ Hong-Ou-Mandel experiment with the pulser. A quantum dot can be inserted to chan
 - This simulation does not simulate photons, it simulates detector _click_ times. This includes dark counts!
 
 # Known issues
+- HOM model does not reproduce 3/4 sidepeaks, instead there is behaviour of side peaks which is not understood.
 - Dark counts are generated at `LightStream`. This means they experience loss and are incident on the quantum dot. Their generation should be moved to the detector.
 - It would be nice if each optical element can become a subclass of `LightStream`, such that its properties are accesible along the optical chain. The `LightGenerator.apply()` method sucks and hurts my soul, but is used to circumvent this problem. The use of `BeamSplitter` really complicates how to implement the optics in a beautiful way.
 
