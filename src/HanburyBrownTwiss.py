@@ -4,7 +4,6 @@ from src.photon_generator import Detector
 from scipy.signal import correlate
 
 # Basis functions needed to perform the simulation (with full cross-correlation)
-# IETS NIEUWS :)
 
 def beam_splitter(emitted_times, chance1=0.5):
     '''Split the given beam into two by using probablistic chance {chance1}.
